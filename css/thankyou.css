@@ -1,0 +1,256 @@
+:root {
+  --brand-red: #c41e3a;
+  --brand-red-dark: #861125;
+  --brand-red-deep: #5c0b19;
+  --brand-cream: #fff8f7;
+  --ink: #202b37;
+  --muted: #63707d;
+  --page-gutter: 24px;
+  --header-height: 88px;
+  --ack-width: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.acknowledgement-page {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #fff;
+  color: var(--ink);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+.acknowledgement-page img {
+  display: block;
+  max-width: 100%;
+}
+
+.acknowledgement-page :focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+/* Acknowledgement hero */
+.acknowledgement-page .acknowledgement-section {
+  position: relative;
+  display: grid;
+  min-height: calc(100svh - var(--header-height));
+  margin-top: var(--header-height);
+  place-items: center;
+  padding: 84px var(--page-gutter);
+  overflow: hidden;
+  background: var(--brand-red-deep);
+}
+
+.acknowledgement-page .acknowledgement-section::before,
+.acknowledgement-page .acknowledgement-section::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.acknowledgement-page .acknowledgement-section::before {
+  background-image: url("../assets/pictures/photo collage.png");
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.015);
+}
+
+.acknowledgement-page .acknowledgement-section::after {
+  background:
+    radial-gradient(circle at 16% 8%, rgba(255, 255, 255, 0.17) 0 1px, transparent 1.5px) 0 0 / 20px 20px,
+    linear-gradient(125deg, rgba(78, 3, 18, 0.91), rgba(196, 30, 58, 0.69));
+}
+
+.acknowledgement-page .acknowledgement-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 42px;
+  width: min(var(--ack-width), 100%);
+  margin: 0 auto;
+}
+
+/* Supporter logos */
+.acknowledgement-page .logo-strip {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: center;
+  gap: 13px;
+  padding: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.33);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 30px rgba(47, 1, 12, 0.22);
+  backdrop-filter: blur(9px);
+}
+
+.acknowledgement-page .logo-strip img {
+  width: 100%;
+  height: 92px;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  object-fit: contain;
+  transition: transform 170ms ease, box-shadow 170ms ease;
+}
+
+.acknowledgement-page .logo-strip img:hover {
+  transform: translateY(-4px) scale(1.025);
+  box-shadow: 0 10px 19px rgba(45, 2, 13, 0.2);
+}
+
+/* Thank-you message */
+.acknowledgement-page .thankyou-card {
+  position: relative;
+  overflow: hidden;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(39px, 6vw, 74px) clamp(26px, 7vw, 82px);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 57px rgba(47, 1, 12, 0.31);
+  text-align: center;
+}
+
+.acknowledgement-page .thankyou-card::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 7px;
+  background: repeating-linear-gradient(90deg, #2ecc71 0 24px, #e74c3c 24px 48px, #3498db 48px 72px, #f1c40f 72px 96px, #9b59b6 96px 120px);
+  content: "";
+}
+
+.acknowledgement-page .thankyou-card h1 {
+  margin: 0;
+  color: var(--brand-red);
+  font-family: 'Merriweather', serif;
+  font-size: clamp(2.45rem, 6vw, 4.7rem);
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+}
+
+.acknowledgement-page .thankyou-divider {
+  width: 93px;
+  height: 4px;
+  margin: 24px auto 27px;
+  border-radius: 99px;
+  background: var(--brand-red);
+}
+
+.acknowledgement-page .thankyou-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.95rem, 1.45vw, 1.09rem);
+  line-height: 1.9;
+}
+
+.acknowledgement-page .thankyou-card p strong {
+  color: var(--brand-red-dark);
+  font-weight: 700;
+}
+
+/* Footer */
+.acknowledgement-page footer {
+  padding: 54px 20px 31px;
+  background: #18202a;
+  color: #fff;
+  text-align: center;
+}
+
+.acknowledgement-page .footer-seal {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 18px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+}
+
+.acknowledgement-page .footer-copy {
+  font-weight: 600;
+}
+
+.acknowledgement-page .footer-sub {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.87rem;
+}
+
+@media (max-width: 900px) {
+  .acknowledgement-page .logo-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 590px;
+    margin: 0 auto;
+  }
+
+  .acknowledgement-page .logo-strip img {
+    height: 86px;
+  }
+}
+
+@media (max-width: 700px) {
+  .acknowledgement-page .acknowledgement-section {
+    min-height: calc(100svh - 64px);
+    margin-top: 64px;
+    padding: 53px 16px;
+  }
+
+  .acknowledgement-page .acknowledgement-section::before {
+    background-position: center;
+  }
+
+  .acknowledgement-page .acknowledgement-content {
+    gap: 25px;
+  }
+
+  .acknowledgement-page .logo-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    padding: 7px;
+    border-radius: 14px;
+  }
+
+  .acknowledgement-page .logo-strip img {
+    height: 65px;
+    padding: 7px;
+    border-radius: 8px;
+  }
+
+  .acknowledgement-page .thankyou-card {
+    padding: 37px 22px 31px;
+    border-radius: 17px;
+  }
+
+  .acknowledgement-page .thankyou-card h1 {
+    font-size: clamp(2.05rem, 11vw, 3rem);
+  }
+
+  .acknowledgement-page .thankyou-divider {
+    margin: 19px auto 20px;
+  }
+
+  .acknowledgement-page .thankyou-card p {
+    font-size: 0.89rem;
+    line-height: 1.76;
+  }
+}
+
+@media (max-width: 390px) {
+  .acknowledgement-page .logo-strip img {
+    height: 58px;
+  }
+}
